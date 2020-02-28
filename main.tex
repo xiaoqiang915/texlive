@@ -1,0 +1,45 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{macros-ohp}
+
+
+%Please make sure the tex is compiled twice to have all the background images displayed correctly.
+\renewcommand\appendix{\setcounter{secnumdepth}{-2}}
+
+\title{\Huge \textbf{\textless Daily Work of Kkoma \textgreater}}
+
+\author{\Large  Qiang Xiao\\
+	%\Large Supervised by \textless Name\textgreater 
+}
+\date{\Large Summer of 2019}
+
+\linespread{1.5}
+
+\begin{document}
+	\begin{titlingpage}
+	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{imgs/background.png}};
+	\vspace*{3.5cm}
+	{\let\newpage\relax\maketitle}
+	\vspace*{\fill}
+	\begin{textblock*}{140mm}(40mm,200mm)
+			\begin{center}
+				%\begin{small}
+			\Large  Kkoma.xiao@eisoo.com
+				%\end{small}
+			\end{center}
+	\end{textblock*}
+
+	\end{titlingpage}
+
+	\newpage
+	\tableofcontents{}
+	\thispagestyle{empty}
+	\newpage
+	\setcounter{page}{1}
+
+	The first page of the report. \\
+	\newpage
+	这是一个CTEX的utf-8编码例子，{\kaishu 这里是楷体显示}，{\songti 这里是宋体显示}，{\heiti 这里是黑体显示}，{\fangsong 这里是仿宋显示}。
+	\Blinddocument
+	\input{}
+	
+\end{document}
