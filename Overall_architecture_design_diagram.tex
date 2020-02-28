@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[tikz,border=2pt]{standalone} 
+\usepackage{macros-ohp}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usetikzlibrary{fit,arrows,calc,positioning}
+\begin{document}
+
+\begin{figure}
+\tikzstyle{h1} = [rectangle, rounded corners, minimum width=4cm, minimum height=2cm, text centered, text width=4cm, draw=black, fill=red!30, drop shadow]
+\tikzstyle{h2} = [rectangle, rounded corners, minimum width=3cm, minimum height=5cm, text centered, text width=2cm, draw=black, fill=red!30, drop shadow]
+\tikzstyle{text_line} = [text width=2cm,text centered, midway]
+    \begin{center}
+    \begin{tikzpicture}[auto]
+    \path 
+        node [h1](a0){\textbf{\large 调度服务}}
+        node [below=1.5cm of a0](b0){\textbf{\large 数据处理服务}}
+        node [h1, below=0.5cm of b0](b1){\textbf{\large 网络爬虫}}
+        node [h1, below=1cm of b1](b2){\textbf{\large 内容分析}}
+        node [h1, below=1.5cm of b2](c1){\textbf{\large WordPress服务}}
+        node [h1, below=1cm of c1](c2){\textbf{\large 阅读服务}}
+        node [left=2.5cm of b0](d0){\textbf{\large 数据存储服务}}
+        node [h2, below=0.5cm of d0](d1){\textbf{\large Mongo数据库}}
+        node [h2, below=1.5cm of d1](d2){\textbf{\large MySQL数据库}} 
+        node [h2, right=1.5cm of b1, yshift=-1.5cm](e1){\textbf{\large 数据源:}(机器之心、量子位、腾讯云社区、...)}
+        node [fit=(b1)(b2)(b0), inner sep=0.5cm](B) {}
+        node [fit=(d1)(d2)(d0), inner sep=0.5cm](D) {};
+        \begin{pgfonlayer}{background}
+        \filldraw [fill=yellow!20,rounded corners, draw=black!50, dashed]
+        (B.south -| B.west)
+        rectangle (B.north -| B.east);
+        \filldraw [fill=yellow!20,rounded corners, draw=black!50, dashed]
+        (D.south -| D.west)
+        rectangle (D.north -| D.east);
+        \end{pgfonlayer}
+        \draw [--, color=black!70, thick](a0)--(B) 
+        node [text_line]{\textcolor{blue}{\small 1、启动服务}};
+        \draw [->, color=black!70, thick](e1.west) ++(0cm, 1.5cm) -- (b1.east) 
+        node [text_line, above] {\textcolor{blue}{\small 2、数据抓取}};
+        \draw [<-, color=black!70, thick](d1.east) ++(0cm, 1.5cm) -- (b1.west) 
+        node [text_line, above] {\textcolor{blue}{\small 3、数据存储}};
+        \draw [->, color=black!70, thick](b1.south) ++(1.5cm, 0cm) -- +(0cm, -4.5cm) 
+        node [text_line, above, xshift=1cm, yshift=-0.5cm] {\textcolor{blue}{\small 4、数据上传}};
+        \draw [<-, color=black!70, thick](d2.east) ++(0cm, 1.5cm) -- (c1.west) 
+        node [text_line, above] {\textcolor{blue}{\small 5、数据备份}};
+        \draw [->, color=black!70, thick](c1.south) -- (c2.north) 
+        node [text_line, above, yshift=-0.5cm] {\textcolor{blue}{\small 6、数据浏览}};
+        %\draw [->, color=black!70, thick, dashed](d1.east) ++(0cm, -1.5cm) 
+        %.. controls + (right:2cm) and + (up:2cm) .. (c1.north) 
+        %node [text_line, above, xshift=-1.75cm] {\textcolor{blue}{\small 7、数据分析}};
+        \draw [->, color=black!70, thick, dashed](d1.east) ++(0cm, -1.5cm) -- (b2.west)
+        node [text_line, above] {\textcolor{blue}{\small 7、数据分析}};
+        \draw [->, color=black!70, thick, dashed](b2.south) -- (c1.north)
+        node [text_line, above] {\textcolor{blue}{\small 8、数据更新}};
+        \draw [->, color=black!70, thick](a0.east) ++(1.5cm, 0cm) -- +(1cm, 0cm)
+        node [text_line, right, xshift=0.5cm] {\textcolor{blue}{\small 数据流}};
+        \draw [--, color=black!70, thick](a0.east) ++(1.5cm, -0.5cm) -- +(1cm, 0cm)
+        node [text_line, right, xshift=0.5cm] {\textcolor{blue}{\small 控制流}};
+        \draw [->, color=black!70, thick, dashed](a0.east) ++(1.5cm, -1cm) -- +(1cm, 0cm)
+        node [text_line, right, xshift=0.5cm] {\textcolor{blue}{\small 扩展服务}};
+    \end{tikzpicture}
+    \end{center}
+    \caption{\label{introdoction}整体设计架构图}
+    \end{figure}
+\end{document}
