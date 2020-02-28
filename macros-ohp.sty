@@ -1,0 +1,99 @@
+\usepackage{epsfig,pict2e}
+\usepackage[tc]{titlepic}
+\usepackage{amsmath,amsfonts,amssymb,relsize,geometry}
+\usepackage{titling}
+\usepackage[absolute,overlay]{textpos}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage[UTF8]{ctex}
+
+\geometry{tmargin=3.5cm,bmargin=3cm,lmargin=2cm,rmargin=2cm} %设置页边距
+%\geometry{\auto} %设置页边距
+
+%============设置页面格式===============
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhf{} %清楚默认布局 \fancyhead{} \fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{\thepage}
+%E: Even page 偶数页
+%O: Odd page 奇数页
+%L: Left field
+%C: Center field
+%R: Right field
+%H: Header 页眉
+%F: Footer 页脚
+\chead{
+\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=north] at (current page.north){\includegraphics[width=\paperwidth]{imgs/header.png}};
+}
+
+\cfoot{
+\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=south] at (current page.south){\includegraphics[width=\paperwidth]{imgs/footer.png}};
+}
+
+
+%Font setting
+%Update two lines below to change the font
+%More details: https://en.wikibooks.org/wiki/LaTeX/Fonts
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand*\rmdefault{phv}
+
+%Important: the document needs to be compiled with xelatex/lualatex if two lines below are uncommented
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ADD Package
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[titletoc]{appendix}
+\usepackage{indentfirst}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+
+%====================设置代码环境==================
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+%=============设置强调环境========================
+\usepackage[normalem]{ulem}
+\newcommand\hl{\bgroup\markoverwith
+    {\textcolor{yellow}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+
+\usepackage[section]{placeins} %禁止表格等东西浮动跨节
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%==============绘图==============================
+% 绘制流程图
+\usepackage[tikz]{bclogo}
+\usepackage{tikz,mathpazo}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usetikzlibrary{fit,calc,positioning}
+\usetikzlibrary{shapes.geometric}
