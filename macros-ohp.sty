@@ -30,6 +30,8 @@
 \chead{
 \tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=north] at (current page.north){\includegraphics[width=\paperwidth]{imgs/header.png}};
 }
+%\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=north] at (current page.north){\includegraphics[width=0.5\paperwidth]{imgs/header.png}};
+}
 
 \cfoot{
 \tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=south] at (current page.south){\includegraphics[width=\paperwidth]{imgs/footer.png}};
@@ -97,3 +99,7 @@
 \usetikzlibrary{arrows,snakes,backgrounds}
 \usetikzlibrary{fit,calc,positioning}
 \usetikzlibrary{shapes.geometric}
+
+%==============表格==============================
+% 绘制单元格
+\usepackage{makecell}
